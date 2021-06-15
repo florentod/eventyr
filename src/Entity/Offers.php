@@ -75,7 +75,7 @@ class Offers
     private $country;
 
     /**
-     * @ORM\OneToMany(targetEntity=Datesprices::class, mappedBy="offer")
+     * @ORM\OneToMany(targetEntity=DatesPrices::class, mappedBy="offer")
      */
     private $datesprices;
 
