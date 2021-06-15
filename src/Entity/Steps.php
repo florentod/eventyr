@@ -17,8 +17,25 @@ class Steps
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $step_name;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getStepName(): ?string
+    {
+        return $this->step_name;
+    }
+
+    public function setStepName(string $step_name): self
+    {
+        $this->step_name = $step_name;
+
+        return $this;
     }
 }
