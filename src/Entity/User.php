@@ -119,12 +119,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $user_select_comment;
 
     /**
-     * @ORM\ManyToMany(targetEntity=offers::class, inversedBy="users")
+     * @ORM\ManyToMany(targetEntity=Offers::class, inversedBy="users")
      */
     private $offer;
 
     /**
-     * @ORM\OneToMany(targetEntity=bookings::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Bookings::class, mappedBy="user")
      */
     private $booking;
 

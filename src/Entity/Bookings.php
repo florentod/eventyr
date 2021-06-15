@@ -23,7 +23,7 @@ class Bookings
     private $comment_content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=datesprices::class, inversedBy="bookings")
+     * @ORM\ManyToOne(targetEntity=DatesPrices::class, inversedBy="bookings")
      */
     private $dateprice;
 

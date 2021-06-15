@@ -20,7 +20,7 @@ class DatesPrices
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=offers::class, inversedBy="datesprices")
+     * @ORM\ManyToOne(targetEntity=Offers::class, inversedBy="datesprices")
      */
     private $offer;
 

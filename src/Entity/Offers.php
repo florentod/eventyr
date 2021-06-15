@@ -60,17 +60,17 @@ class Offers
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity=steps::class, mappedBy="offers")
+     * @ORM\OneToMany(targetEntity=Steps::class, mappedBy="offers")
      */
     private $step;
 
     /**
-     * @ORM\OneToMany(targetEntity=photos::class, mappedBy="offers")
+     * @ORM\OneToMany(targetEntity=Photos::class, mappedBy="offers")
      */
     private $photo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=countries::class, inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity=Countries::class, inversedBy="offers")
      */
     private $country;
 
