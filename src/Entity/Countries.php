@@ -17,8 +17,25 @@ class Countries
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Country_name;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getCountryName(): ?string
+    {
+        return $this->Country_name;
+    }
+
+    public function setCountryName(string $Country_name): self
+    {
+        $this->Country_name = $Country_name;
+
+        return $this;
     }
 }
