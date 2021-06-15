@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -115,6 +117,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $user_select_comment;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=offers::class, inversedBy="users")
+     */
+    private $offer;
+
+    /**
+     * @ORM\OneToMany(targetEntity=bookings::class, mappedBy="user")
+     */
+    private $booking;
+
+    public function __construct()
+    {
+        $this->offer = new ArrayCollection();
+        $this->booking = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -384,6 +402,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUserSelectComment(string $user_select_comment): self
     {
         $this->user_select_comment = $user_select_comment;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|offers[]
+     */
+    public function getOffer(): Collection
+    {
+        return $this->offer;
+    }
+
+    public function addOffer(offers $offer): self
+    {
+        if (!$this->offer->contains($offer)) {
+            $this->offer[] = $offer;
+        }
+
+        return $this;
+    }
+
+    public function removeOffer(offers $offer): self
+    {
+        $this->offer->removeElement($offer);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|bookings[]
+     */
+    public function getBooking(): Collection
+    {
+        return $this->booking;
+    }
+
+    public function addBooking(bookings $booking): self
+    {
+        if (!$this->booking->contains($booking)) {
+            $this->booking[] = $booking;
+            $booking->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(bookings $booking): self
+    {
+        if ($this->booking->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getUser() === $this) {
+                $booking->setUser(null);
+            }
+        }
 
         return $this;
     }

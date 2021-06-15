@@ -32,6 +32,11 @@ class Steps
      */
     private $step_description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Offers::class, inversedBy="step")
+     */
+    private $offers;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Steps
     public function setStepDescription(string $step_description): self
     {
         $this->step_description = $step_description;
+
+        return $this;
+    }
+
+    public function getOffers(): ?Offers
+    {
+        return $this->offers;
+    }
+
+    public function setOffers(?Offers $offers): self
+    {
+        $this->offers = $offers;
 
         return $this;
     }
