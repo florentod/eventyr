@@ -22,6 +22,16 @@ class Steps
      */
     private $step_name;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $step_order;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $step_description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +45,30 @@ class Steps
     public function setStepName(string $step_name): self
     {
         $this->step_name = $step_name;
+
+        return $this;
+    }
+
+    public function getStepOrder(): ?int
+    {
+        return $this->step_order;
+    }
+
+    public function setStepOrder(int $step_order): self
+    {
+        $this->step_order = $step_order;
+
+        return $this;
+    }
+
+    public function getStepDescription(): ?string
+    {
+        return $this->step_description;
+    }
+
+    public function setStepDescription(string $step_description): self
+    {
+        $this->step_description = $step_description;
 
         return $this;
     }
