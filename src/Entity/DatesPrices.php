@@ -131,4 +131,10 @@ class DatesPrices
 
         return $this;
     }
+
+    //! réflechir     
+    public function __toString() : ?string     
+    {         
+        return 'id : ' . $this->id . ' prix : ' . $this->price . '€ du ' . date_format($this->start_date, 'd-m-Y') . ' à ' . date_format($this->return_date, 'd-m-Y');     
+    }
 }

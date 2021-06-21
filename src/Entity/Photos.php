@@ -55,4 +55,9 @@ class Photos
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->photo;
+    }
 }

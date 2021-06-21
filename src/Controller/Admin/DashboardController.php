@@ -2,6 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\DatesPrices;
+use App\Entity\Offers;
+use App\Entity\Photos;
+use App\Entity\Steps;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -15,7 +20,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return $this->render('admin/dashboard.html.twig'); 
+        return parent::index();
     }
 
     public function configureDashboard(): Dashboard
@@ -27,6 +32,15 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Offres', 'fas fa-list', Offers::class);
+        return [
+    MenuItem::subMenu('Blog', 'fa fa-article')->setSubItems([
+
+        yield MenuItem::linkToCrud('Dates et prix', 'fas fa-list', DatesPrices::class),
+        yield MenuItem::linkToCrud('Photos', 'fas fa-list', Photos::class),
+        yield MenuItem::linkToCrud('Etapes', 'fas fa-list', Steps::class),
+    ])
+];
     }
 }

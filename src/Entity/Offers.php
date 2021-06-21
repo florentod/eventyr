@@ -304,4 +304,8 @@ class Offers
 
         return $this;
     }
+
+    public function __toString(){
+        return $this->offer_name;
+    }
 }
