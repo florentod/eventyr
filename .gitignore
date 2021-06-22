@@ -6,6 +6,8 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
+/composer.lock
+/package-lock.json
 /vendor/
 ###< symfony/framework-bundle ###
 
@@ -18,3 +20,6 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+composer.lock
+*.lock
+*.lock

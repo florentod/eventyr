@@ -47,7 +47,7 @@ class AppFixtures extends Fixture
              ->setUserPassportNumber($faker->bankAccountNumber())
              ->setUserPassportCountry($faker->country())
              ->setUserPassportDate($faker->dateTimeBetween('-10 years', '-1 days'))
-             //->setCreatedAt($faker->dateTimeBetween('-1 year', 'now'))
+             ->setCreatedAt($faker->dateTimeBetween('-1 year', 'now'))
              ->setRoles(['ROLE_ADMIN']);
 
         $password = $this->encoder->encodePassword($admin, 'password');
@@ -75,7 +75,7 @@ class AppFixtures extends Fixture
              ->setUserPassportNumber($faker->bankAccountNumber())
              ->setUserPassportCountry($faker->country())
              ->setUserPassportDate($faker->dateTimeBetween('-10 years', '-1 days'))
-             //->setCreatedAt($faker->dateTimeBetween('-1 year', 'now'))
+             ->setCreatedAt($faker->dateTimeBetween('-1 year', 'now'))
              ->setRoles(['ROLE_USER']);
 
         $password = $this->encoder->encodePassword($user, 'password');

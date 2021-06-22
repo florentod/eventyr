@@ -21,7 +21,7 @@ class StepsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             TextField::new('step_name'),
             NumberField::new('step_order'),
             TextEditorField::new('step_description'),
