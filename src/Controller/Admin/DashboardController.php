@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Countries;
 use App\Entity\DatesPrices;
 use App\Entity\Offers;
 use App\Entity\Photos;
@@ -20,7 +21,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        return $this->render('admin/dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -32,15 +33,13 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
-        yield MenuItem::linkToCrud('Offres', 'fas fa-list', Offers::class);
-        return [
-    MenuItem::subMenu('Blog', 'fa fa-article')->setSubItems([
+        yield MenuItem::section('Offres');
+        yield MenuItem::linkToCrud('Offres', 'fab fa-buffer', Offers::class);
+        yield MenuItem::linkToCrud('Etapes', 'fas fa-shoe-prints', Steps::class);
+        yield MenuItem::linkToCrud('Date Prix', 'fas fa-dollar-sign', DatesPrices::class);
+        yield MenuItem::linkToCrud('Pays', 'fas fa-globe', Countries::class);
 
-        yield MenuItem::linkToCrud('Dates et prix', 'fas fa-list', DatesPrices::class),
-        yield MenuItem::linkToCrud('Photos', 'fas fa-list', Photos::class),
-        yield MenuItem::linkToCrud('Etapes', 'fas fa-list', Steps::class),
-    ])
-];
+        yield MenuItem::section('Ulilisateurs');
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
     }
 }
