@@ -86,12 +86,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $user_zipcode;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $user_phone;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $user_mobile;
 
@@ -334,24 +334,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getUserPhone(): ?int
+    public function getUserPhone(): ?string
     {
         return $this->user_phone;
     }
 
-    public function setUserPhone(int $user_phone): self
+    public function setUserPhone(string $user_phone): self
     {
         $this->user_phone = $user_phone;
 
         return $this;
     }
 
-    public function getUserMobile(): ?int
+    public function getUserMobile(): ?string
     {
         return $this->user_mobile;
     }
 
-    public function setUserMobile(int $user_mobile): self
+    public function setUserMobile(string $user_mobile): self
     {
         $this->user_mobile = $user_mobile;
 
