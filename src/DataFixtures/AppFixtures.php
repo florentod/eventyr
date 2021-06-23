@@ -108,7 +108,7 @@ class AppFixtures extends Fixture
                   //->setMealType($faker->word())
                   //->setMealDescription($faker->text(100))
                   ->setOfferMapPhoto($faker->word())
-                  ->setOfferStartPhoto($faker->word());
+                  ->setOfferStartPhoto('placeholder-offer-default.jpeg');
                   //->setStartingPoint($faker->city())
                   //->setArrivalPoint($faker->city())
                   //->setTransportCompany($faker->words(3, true))

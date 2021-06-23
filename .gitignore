@@ -29,3 +29,5 @@ yarn-error.log
 /package-lock.json
 /composer.lock
 /symfony.lock
+/public/upload/offers/*
+!/public/upload/offers/placeholder-offer-default.jpeg
