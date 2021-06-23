@@ -20,6 +20,7 @@ Une expérience unique et renversante.
 
 ```bash
 symfony server:start
+
 ```
 
 ### Génération de fake DateBase via $facker
