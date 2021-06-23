@@ -119,7 +119,7 @@ class AppFixtures extends Fixture
         }
 
         // Création des DatesPrix
-        for ($j=0; $j < 3; $j++) {
+        for ($j=0; $j < 30; $j++) {
             $datePrice = new DatesPrices();
             
             $datePrice->setPrice($faker->randomFloat(99000, 9900, null))
