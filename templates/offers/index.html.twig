@@ -34,6 +34,9 @@
                 <td>{{ offer.offerDescription }}</td>
                 <td>{{ offer.offerMapPhoto }}</td>
                 <td>{{ offer.offerStartPhoto }}</td>
+                {# {% for date_price in dates_prices %}
+                <td>{{ date_price.price}}</td>
+                {% endfor %} #}
                 <td>
                     <a href="{{ path('offers_show', {'id': offer.id}) }}">show</a>
                     <a href="{{ path('offers_edit', {'id': offer.id}) }}">edit</a>

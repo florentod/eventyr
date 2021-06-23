@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Offers;
 use App\Form\OffersType;
 use App\Repository\OffersRepository;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -90,5 +92,25 @@ class OffersController extends AbstractController
         }
 
         return $this->redirectToRoute('offers_index');
+    }
+
+    /**
+     * @Route("/api/search/{query}", methods={"GET"})
+     */
+    public function search($query, OffersRepository $offersRepository, LoggerInterface $logger)
+    {
+        //$this->denyAccessUnlessGranted("ROLE_USER");
+
+        // $listAuteur = $auteurRepository->findBy(array(), array('nom' => 'DESC'));
+        // $listAuteur = $auteurRepository->findAllArray();
+
+        // $listAuteur = $auteurRepository->findAllArrayWithBooks($query);
+        $offers = $offersRepository->findAllArray($query);
+
+        $logger->info($query);
+
+
+        // return $this->json($listAuteur);
+        return new JsonResponse($offers);
     }
 }
