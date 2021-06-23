@@ -18,6 +18,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 		];
 	}
 
+	// Persiste date de création courante s'il s'agit de entity User
 	public function setUserDateCreation(BeforeEntityPersistedEvent $event)
 	{
 		$entity = $event->getEntityInstance();
