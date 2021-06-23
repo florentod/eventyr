@@ -1,7 +1,7 @@
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import React, { useRef, useState } from 'react';
 
-import HighLighter from "react-highlight-words";
+import Highlighter from "react-highlight-words";
 import { IoCloseCircleSharp } from "react-icons/io5";
 
 import Loader from "react-loader-spinner";
@@ -18,7 +18,7 @@ import axios from "axios";
 
     if (search) {
       const response = await axios.get(
-        `/api/authors.search/${encodeURICompent(search)}`
+        `/offers/api/search/${encodeURIComponent(search)}`
       );
       console.log("🚀 ~ file: SearchAuthorsInput.jsx", response.data);
       setResults(response.data);
@@ -79,7 +79,7 @@ import axios from "axios";
             className="searchIcon" />
         )}
 
-        <label for="search">Rechercher parmis nos expériences</label>
+        <label htmlFor="search">Rechercher parmis nos expériences</label>
         <br/>
         <input className="searchBox"
           type="text"
@@ -98,12 +98,12 @@ import axios from "axios";
           style={{
             width: "100%",
             position: "absolute",
-            width: "inherit",
+            
           }}
         >
           <ul
             style={{
-              hight: "12rem",
+              height: "12rem",
               listStyleType: "none",
               backgroundColor: "white",
               color: "darkgray",
@@ -121,11 +121,11 @@ import axios from "axios";
                     className="resultLine"
                     onClick={() => handleSelect(res.id)}
                   >
-                    <Highlighter highlightClassName="highlistClass"
+                    <a href={`/offers/${res.id}`}><Highlighter highlightClassName="highlistClass"
                       searchWords={query.split(" ")}
                       autoEscape={true}
-                      textToHighlight={res.nom}
-                    />
+                      textToHighlight={res.offer_name}
+                    /></a>
                   </li>
                 );
               })

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Offers;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method Offers|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,18 @@ class OffersRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Offers::class);
+    }
+
+    public function findAllArray($query)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy('a.offer_name', 'asc')
+            ->where('a.offer_name LIKE :query')
+            ->setParameter('query', '%' . $query . '%');
+        return $qb->getQuery()->getResult(Query::HYDRATE_ARRAY);
+        // return $qb->getQuery()->getArrayResult(); // Hydratation array, équivalent à la ligne du dessus
     }
 
     // /**
