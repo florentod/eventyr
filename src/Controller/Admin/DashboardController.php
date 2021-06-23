@@ -37,6 +37,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Offres', 'fab fa-buffer', Offers::class);
         yield MenuItem::linkToCrud('Etapes', 'fas fa-shoe-prints', Steps::class);
         yield MenuItem::linkToCrud('Date Prix', 'fas fa-dollar-sign', DatesPrices::class);
+        yield MenuItem::linkToCrud('Photos', 'fas fa-image', Photos::class);
         yield MenuItem::linkToCrud('Pays', 'fas fa-globe', Countries::class);
 
         yield MenuItem::section('Ulilisateurs');

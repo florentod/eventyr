@@ -6,9 +6,12 @@ use App\Repository\OffersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=OffersRepository::class)
+ * @Vich\Uploadable
  */
 class Offers
 {
@@ -53,6 +56,12 @@ class Offers
      * @ORM\Column(type="string", length=255)
      */
     private $offer_start_photo;
+
+     /**
+     * @Vich\UploadableField(mapping="offer_images", fileNameProperty="offer_start_photo")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="offer")
@@ -174,6 +183,24 @@ class Offers
         $this->offer_start_photo = $offer_start_photo;
 
         return $this;
+    }
+
+    public function setImageFile(File $file = null)
+    {
+        $this->imageFile = $file;
+
+        //! VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine
+        // otherwise the event listeners won't be called and the is lost
+        if ($file) {
+            // if 'updateAt' is not defined in your entity, use another property
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     /**
