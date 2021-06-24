@@ -21,26 +21,16 @@ class HomeController extends AbstractController
     
 
     /**
-     * @Route("/home/{type}", name="extreme")
+     * @Route("/home/{type}", name="offre")
      */
-    public function extreme($type, OffersRepository $offersRepository): Response
+    public function offre($type, OffersRepository $offersRepository): Response
     {
         
 $listOffers = $offersRepository->findBy(array('offer_type' => $type));
 
-        return $this->render('home/extreme.html.twig', [
+        return $this->render('home/offre.html.twig', [
             'controller_name' => 'HomeController',
             'listOffers' => $listOffers
-        ]);
-    }
-
-    /**
-     * @Route("/home/inattendu", name="inattendu")
-     */
-    public function inattendu(): Response
-    {
-        return $this->render('home/inattendu.html.twig', [
-            'controller_name' => 'HomeController',
         ]);
     }
 
