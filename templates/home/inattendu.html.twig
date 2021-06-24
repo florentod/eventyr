@@ -21,4 +21,27 @@
 
     </ul>
 </div>
+{% for offer in offers %}
+            <tr>
+                <td>{{ offer.id }}</td>
+                <td>{{ offer.offerName }}</td>
+                <td>{{ offer.offerType }}</td>
+                <td>{{ offer.offerHosting }}</td>
+                <td>{{ offer.offerDifficulty }}</td>
+                <td>{{ offer.offerDescription }}</td>
+                <td>{{ offer.offerMapPhoto }}</td>
+                <td>{{ offer.offerStartPhoto }}</td>
+                {# {% for date_price in dates_prices %}
+                <td>{{ date_price.price}}</td>
+                {% endfor %} #}
+                <td>
+                    <a href="{{ path('offers_show', {'id': offer.id}) }}">show</a>
+                    {# <a href="{{ path('offers_edit', {'id': offer.id}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
 {% endblock %}

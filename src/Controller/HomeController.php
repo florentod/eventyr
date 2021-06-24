@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\OffersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,23 +18,19 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-    /**
-     * @Route("/home/decouverte", name="decouverte")
-     */
-    public function decouverte(): Response
-    {
-        return $this->render('home/decouverte.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
+    
 
     /**
-     * @Route("/home/extreme", name="extreme")
+     * @Route("/home/{type}", name="extreme")
      */
-    public function extreme(): Response
+    public function extreme($type, OffersRepository $offersRepository): Response
     {
+        
+$listOffers = $offersRepository->findBy(array('offer_type' => $type));
+
         return $this->render('home/extreme.html.twig', [
             'controller_name' => 'HomeController',
+            'listOffers' => $listOffers
         ]);
     }
 
@@ -43,6 +40,26 @@ class HomeController extends AbstractController
     public function inattendu(): Response
     {
         return $this->render('home/inattendu.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    /**
+     * @Route("/home/mon_compte", name="mon_compte")
+     */
+    public function mon_compte(): Response
+    {
+        return $this->render('home/mon_compte.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    /**
+     * @Route("/home/mon_aventure", name="mon_aventure")
+     */
+    public function mon_aventure(): Response
+    {
+        return $this->render('home/mon_aventure.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }

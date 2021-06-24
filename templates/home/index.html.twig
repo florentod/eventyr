@@ -48,8 +48,8 @@
             <nav> <!--item--> 
                 <ul class="d-flex"> <!--Conteneur Flex-->
                     <li><a href="#">Blog</a></li> <!--item-->
-                    <li><a href="#">Mon Compte</a></li> <!--item-->
-                    <li><a href="#">Mon aventure</a></li> <!--item-->
+                    <li><a href="{{ '/home/mon_compte' }}">Mon Compte</a></li> <!--item-->
+                    <li><a href="{{ '/home/mon_aventure' }}">Mon aventure</a></li> <!--item-->
                     <li><a href="#">Favoris</a></li> <!--item-->
                     <li><a href="">Contact</a></li> <!--item-->
                 </ul>
@@ -62,7 +62,8 @@
             <h2>Une experience unique et renversante</h2>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Recherche">
+            {# <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Recherche"> #}
+            <div id="search"></div>
             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Plus de critère</button>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="#">Action</a></li>
@@ -86,17 +87,17 @@
 
 
         <div class="d-flex justify-content-center">
-            <a href="#" btn class="btn btn-primary">
+            <a href="{{ '/home/extreme' }}" btn class="btn btn-primary">
                 <h3>01</h3>
                 <hr>
                 <p>Extrême</p>
             </a>
-            <a href="#" class="btn btn-success">
+            <a href="{{ '/home/decouverte' }}" class="btn btn-success">
                 <h3>02</h3>
                 <hr>
                 <p>Découverte</p>
             </a>
-            <a href="#" class="btn btn-warning">
+            <a href="{{ '/home/inattendu' }}" class="btn btn-warning">
                 <h3>03</h3>
                 <hr>
                 <p>Innatendu</p>
