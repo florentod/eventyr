@@ -39,7 +39,7 @@
                 {% endfor %} #}
                 <td>
                     <a href="{{ path('offers_show', {'id': offer.id}) }}">show</a>
-                    <a href="{{ path('offers_edit', {'id': offer.id}) }}">edit</a>
+                    {# <a href="{{ path('offers_edit', {'id': offer.id}) }}">edit</a> #}
                 </td>
             </tr>
         {% else %}
@@ -50,5 +50,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('offers_new') }}">Create new</a>
+    <{# a href="{{ path('offers_new') }}">Create new</> #}
 {% endblock %}
