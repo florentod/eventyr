@@ -32,7 +32,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('user_city'),
             TextField::new('user_zipcode'),
             TextField::new('user_phone'),
-            TextField::new('$user_mobile'),
+            TextField::new('user_mobile'),
             TextField::new('user_passport_number'),
             TextField::new('user_passport_country'),
             DateField::new('user_passport_date'),
