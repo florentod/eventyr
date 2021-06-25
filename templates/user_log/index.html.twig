@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>User index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Username</th>
+                <th>User_civility</th>
+                <th>User_first_name</th>
+                <th>User_last_name</th>
+                <th>User_birthday</th>
+                <th>User_nationality</th>
+                <th>User_address</th>
+                <th>User_city</th>
+                <th>User_zipcode</th>
+                <th>User_phone</th>
+                <th>User_mobile</th>
+                <th>User_passport_number</th>
+                <th>User_passport_country</th>
+                <th>User_passport_date</th>
+                <th>User_photo</th>
+                <th>User_select_comment</th>
+                <th>IsVerified</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.Username }}</td>
+                <td>{{ user.userCivility }}</td>
+                <td>{{ user.userFirstName }}</td>
+                <td>{{ user.userLastName }}</td>
+                <td>{{ user.userBirthday ? user.userBirthday|date('Y-m-d') : '' }}</td>
+                <td>{{ user.userNationality }}</td>
+                <td>{{ user.userAddress }}</td>
+                <td>{{ user.userCity }}</td>
+                <td>{{ user.userZipcode }}</td>
+                <td>{{ user.userPhone }}</td>
+                <td>{{ user.userMobile }}</td>
+                <td>{{ user.userPassportNumber }}</td>
+                <td>{{ user.userPassportCountry }}</td>
+                <td>{{ user.userPassportDate ? user.userPassportDate|date('Y-m-d') : '' }}</td>
+                <td>{{ user.userPhoto }}</td>
+                <td>{{ user.userSelectComment }}</td>
+                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('user_log_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('user_log_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="23">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_log_new') }}">Create new</a>
+{% endblock %}
