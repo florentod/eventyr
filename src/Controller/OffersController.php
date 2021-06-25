@@ -35,7 +35,7 @@ class OffersController extends AbstractController
     /**
      * @Route("/new", name="offers_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    /* public function new(Request $request): Response
     {
         $offer = new Offers();
         $form = $this->createForm(OffersType::class, $offer);
@@ -53,13 +53,18 @@ class OffersController extends AbstractController
             'offer' => $offer,
             'form' => $form->createView(),
         ]);
-    }
+    } */
 
     /**
      * @Route("/{id}", name="offers_show", methods={"GET"})
      */
     public function show(Offers $offer): Response
     {
+
+        if($this->getUser() == null){
+            return $this->redirectToRoute('app_register');
+        }
+
         return $this->render('offers/show.html.twig', [
             'offer' => $offer,
         ]);
@@ -68,7 +73,7 @@ class OffersController extends AbstractController
     /**
      * @Route("/{id}/edit", name="offers_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Offers $offer): Response
+    /* public function edit(Request $request, Offers $offer): Response
     {
         $form = $this->createForm(OffersType::class, $offer);
         $form->handleRequest($request);
@@ -83,12 +88,12 @@ class OffersController extends AbstractController
             'offer' => $offer,
             'form' => $form->createView(),
         ]);
-    }
+    } */
 
     /**
      * @Route("/{id}", name="offers_delete", methods={"POST"})
      */
-    public function delete(Request $request, Offers $offer): Response
+    /* public function delete(Request $request, Offers $offer): Response
     {
         if ($this->isCsrfTokenValid('delete'.$offer->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -97,7 +102,7 @@ class OffersController extends AbstractController
         }
 
         return $this->redirectToRoute('offers_index');
-    }
+    } */
 
     /**
      * @Route("/api/search/{query}", methods={"GET"})

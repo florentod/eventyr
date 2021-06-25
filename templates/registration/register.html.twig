@@ -6,8 +6,7 @@
 
 {% block header %}
 
-    <div id="search">
-    </div>
+    
       
     {% endblock %}
 
@@ -16,6 +15,7 @@
     {% endfor %}
 
     <h1>Register</h1>
+    <a href="{{ '/login' }}">login</a>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}

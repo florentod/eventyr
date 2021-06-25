@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\OffersRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,10 +40,11 @@ $listOffers = $offersRepository->findBy(array('offer_type' => $type));
     }
 
     /**
-     * @Route("/home/mon_compte", name="mon_compte")
+     * @Route("/home/{userid}/edit", name="mon_compte")
      */
-    public function mon_compte(): Response
+    public function mon_compte($userid, UserRepository $userRepository): Response
     {
+       
         return $this->render('home/mon_compte.html.twig', [
             'controller_name' => 'HomeController',
         ]);

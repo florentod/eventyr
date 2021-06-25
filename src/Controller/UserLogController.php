@@ -24,16 +24,17 @@ class UserLogController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
         
-        return $this->render('user_log/index.html.twig', [
+        return $this->render('home', [
             'users' => $userRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="user_log_new", methods={"GET","POST"})
+     * @Route("/tuvaenchier", name="user_log_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+     /* public function new(Request $request): Response
     {
+        
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -50,23 +51,32 @@ class UserLogController extends AbstractController
             'user' => $user,
             'form' => $form->createView(),
         ]);
-    }
+    } */
 
     /**
      * @Route("/{id}", name="user_log_show", methods={"GET"})
      */
-    public function show(User $user): Response
+     public function show(User $user): Response
     {
+        if ($this->getUser()->getId()!== $user->getId())
+        {
+            return $this->redirectToRoute('home');
+        }
+        
         return $this->render('user_log/show.html.twig', [
             'user' => $user,
         ]);
-    }
+    } 
 
     /**
      * @Route("/{id}/edit", name="user_log_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user): Response
     {
+        if ($this->getUser()->getId()!== $user->getId())
+        {
+            return $this->redirectToRoute('home');
+        }
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 

@@ -34,6 +34,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+{% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
     <header>
         <div class="menu d-flex justify-content-between"> <!--Conteneur Flex-->
             <nav> <!--item--> 
@@ -48,7 +53,7 @@
             <nav> <!--item--> 
                 <ul class="d-flex"> <!--Conteneur Flex-->
                     <li><a href="#">Blog</a></li> <!--item-->
-                    <li><a href="{{ '/home/mon_compte' }}">Mon Compte</a></li> <!--item-->
+                    <li><a href="{{ '/user/log/'~app.user.id~'/' }}">Mon Compte</a></li> <!--item-->
                     <li><a href="{{ '/home/mon_aventure' }}">Mon aventure</a></li> <!--item-->
                     <li><a href="#">Favoris</a></li> <!--item-->
                     <li><a href="">Contact</a></li> <!--item-->
