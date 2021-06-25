@@ -22,6 +22,11 @@ class OffersController extends AbstractController
      */
     public function index(OffersRepository $offersRepository): Response
     {
+
+        if($this->getUser() == null){
+            return $this->redirectToRoute('app_register');
+        }
+
         return $this->render('offers/index.html.twig', [
             'offers' => $offersRepository->findAll(),
         ]);

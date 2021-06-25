@@ -20,6 +20,10 @@ class UserLogController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
+        if($this->getUser() == null){
+            return $this->redirectToRoute('app_register');
+        }
+        
         return $this->render('user_log/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);

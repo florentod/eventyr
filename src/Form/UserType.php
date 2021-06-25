@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,12 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
+            /* ->add('roles', ChoiceType::class,[
+                'choices'  => [
+                    'Maybe' => null,
+                    'Yes' => true,
+                    'No' => false,
+                ]) */
             ->add('password')
             ->add('Username')
             ->add('user_civility')
@@ -33,7 +39,6 @@ class UserType extends AbstractType
             ->add('user_select_comment')
             ->add('isVerified')
             ->add('created_at')
-            ->add('offer')
         ;
     }
 
