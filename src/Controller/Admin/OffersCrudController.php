@@ -28,16 +28,18 @@ class OffersCrudController extends AbstractCrudController
             TextField::new('offer_type'),
             TextField::new('offer_hosting'),
             TextField::new('offer_difficulty'),
-            TextField::new('offer_map_photo'),
-            //TextField::new('offer_start_photo'),
-            TextEditorField::new('offer_description'),
-            AssociationField::new('step'),
-            AssociationField::new('photo'),
             AssociationField::new('country'),
+            TextEditorField::new('offer_description')->hideOnIndex(),
+            AssociationField::new('step'),
             AssociationField::new('datesprices'),
-            //Uniquement au moment de la création
-            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            ImageField::new('offer_start_photo')->setBasePath('/upload/offers/')->onlyOnIndex(),
+            //N'est pas persisté dans la BDD
+            TextField::new('imageFileStartPhoto')->setFormType(VichImageType::class)->hideOnIndex(),
+            //Association avec le chemin de base
+            ImageField::new('offer_start_photo')->setBasePath('/upload/offers/'),
+            AssociationField::new('photo'),
+            //Affiché uniquement au moment de la création
+            TextField::new('imageFileMapPhoto')->setFormType(VichImageType::class)->onlyWhenCreating()->hideOnIndex(),
+            ImageField::new('offer_map_photo')->setBasePath('/upload/offers/')->hideOnIndex(),
         ];
     }
     

@@ -9,11 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+//Gérable par Vich Uploader et File interface
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Vich\Uploadable
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -114,6 +118,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $user_photo;
+
+    //! Indique le maping et associe imageFile avec propriété $user_photo
+    /**
+     * @Vich\UploadableField(mapping="user_images", fileNameProperty="user_photo")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -404,6 +415,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->user_photo = $user_photo;
 
         return $this;
+    }
+
+    //! Gettor et Settor de géstion des images via Vich_Uploader
+    public function setImageFile(File $file = null)
+    {
+        $this->imageFile = $file;
+
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function getUserSelectComment(): ?string
