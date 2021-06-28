@@ -1,7 +1,25 @@
 <main>
                 <section id="theme" class="theme container">
                     <div class="row">
+
+                        {% for theme in themes%}
                         <div class="col-md-4">
+                            <div class="filtr-item">
+                                <img class="img"
+                                    src="{{ theme['image'] }}"
+                                    alt="image extreme">
+                                <div class="item-title">
+                                    <a href="{{ theme['route'] }}">{{ theme['number'] }}</a>
+                                    <div></div>
+                                    <h2><span>{{ theme['nom'] }}</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                        {# <div class="col-md-4">
                             <div class="filtr-item">
                                 <img class="img"
                                     src="eventyr/assets/images/climbing-rappelling-rope-cliff-landscape-outdoors-recreation-rocks-sport 2.jpg"
@@ -13,6 +31,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="col-md-4">
                             <div class="filtr-item">
                                 <img class="img" src="eventyr/assets/images/CC_Caballos-11 1.jpg" alt="image decouverte">
@@ -32,23 +53,28 @@
                                     <h2><span>INATTENDU</span></h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> #}
+
+
                     </div>
                 </section>
             
                 <section id="gallery">
                 
                 <div class="container-fluid parent">
-                    <img src="eventyr/assets/images/Rectangle 1168.jpg" alt="" class="gallery__img div1">
+
+                    <img src="{{ lastOffers[0].offer_start_photo }}" alt="" class="gallery__img div1">
                     <div class="div1 overlay" style="background-color:rgba(0, 0, 0, 0.5);">
-                        <p>La dolce Vita Amalfitaine <br> en Ferrari 250 Testa rossa,</p>
-                        <a href=""><img src="eventyr/assets/images/Group 247.svg" alt=""></a>
+                        <p>{{ lastOffers[0].offer_description }}</p>
+                        <a href="offers/{{ lastOffers[0].id }}"><img src="eventyr/assets/images/Group 247.svg" alt=""></a>
                     </div>
-                    <img src="eventyr/assets/images/Rectangle 1170-2.jpg" alt="" class="gallery__img div2">
+
+                    <img src="{{ lastOffers[1].offer_start_photo }}" alt="" class="gallery__img div2">
                     <div class="div2 overlay" style="background-color:rgba(0, 0, 0, 0.5);">
-                        <p>Surfer sur un volcan <br> en activité, Nicaragua</p>
-                        <a href=""><img src="eventyr/assets/images/Group 247.svg" alt=""></a>
+                        <p>{{ lastOffers[1].offer_description }}</p>
+                        <a href="offers/{{ lastOffers[1].id }}"><img src="eventyr/assets/images/Group 247.svg" alt=""></a>
                     </div>
+
                     <img src="eventyr/assets/images/La-magnifique-Forêt-de-Zhangjiajie-en-Chine-a-inspiré-les-Montagnes-flottantes-dans-Avatar-01 1.jpg" alt="" class="gallery__img div3">
                     <div class="div3 overlay" style="background-color:rgba(0, 0, 0, 0.5);">
                         <p>Survie dans les Monts Tian, <br> Chine</p>
