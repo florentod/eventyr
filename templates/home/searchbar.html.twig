@@ -1,0 +1,91 @@
+                <!--Searchbar globale-->
+                <div class="searchbar">
+                    <!--Formulaire destination-->
+                    <div class="champ container">
+                        <div class="d-flex flex-row justify-content-center">
+                            <form action="" id="destination" method="post"> 
+                                <select name="saisi" id="desti">  <!--table pour dev-->
+                                    <option value="null">Destination</option>
+                                    <option value="Australie">Australie</option>
+                                    <option value="Chili">Chili</option>
+                                    <option value="États-Unis">États-Unis</option>
+                                    <option value="Inde">Inde</option>
+                                    <option value="Island">Island</option>
+                                    <option value="Italie">Italie</option>
+                                    <option value="Macédoine">Macédoine</option>
+                                    <option value="Nicaragua">Nicaragua</option>
+                                    <option value="Norvège">Norvège</option>
+                                    <option value="Nouvelle-Zélande">Nouvelle-Zélande</option>
+                                    <option value="Patagonie">Patagonie</option>
+                                    <option value="Philippines"></option>
+                                </select>
+                                <div class="deroulement">
+                                    <div class="encardre"> <!--à cacher en js, faire apparaitre au clic-->
+                                        <div id="textencadre">
+                                            <!--Période-->
+                                            <label for="periode" >Période :</label>
+                                            <div class="d-flex flex-column align-items-center">   
+                                                    <div class="firstsem flex">
+                                                        <input type="checkbox" name="jan" id="jan">
+                                                        <input type="checkbox" name="février" id="feb">
+                                                        <input type="checkbox" name="mars" id="mar">
+                                                        <input type="checkbox" name="avril" id="apr">
+                                                        <input type="checkbox" name="mai" id="may">
+                                                        <input type="checkbox" name="juin" id="jun">
+                                                    </div>
+                                                    
+                                                <div class="secsem flex">
+                                                    <input type="checkbox" name="juillet" id="jul">
+                                                    <input type="checkbox" name="aout" id="aug">
+                                                    <input type="checkbox" name="septembre" id="sep">
+                                                    <input type="checkbox" name="octobre" id="oct">
+                                                    <input type="checkbox" name="novembre" id="nov">
+                                                    <input type="checkbox" name="decembre" id="dec">
+                                                </div>
+                                            </div>
+                                            <!--fin Période-->
+                                            <hr>
+                                            <!--Séjour-->
+                                            <label for="sejour">Séjour :</label>
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <div class="sejourxp flex">
+                                                        <input type="checkbox" name="Xextreme" id="Xextreme">
+                                                        <input type="checkbox" name="Xdecouverte" id="Xdecouverte">
+                                                        <input type="checkbox" name="Xinattendu" id="Xinattendu">
+                                                    </div>
+                                                </div>
+                                            <!--fin Séjour-->
+                                                <hr>
+                                                <label for="pays">Continent :</label>
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <div class="pays justify-content-space-between">
+                                                        <input type="checkbox" name="Europe" id="europe">
+                                                        <input type="checkbox" name="Amerique" id="amerique">
+                                                        <input type="checkbox" name="Asie" id="asie">
+                                                        <input type="checkbox" name="Océanie" id="oceanie">
+                                                        <input type="checkbox" name="Afrique" id="afrique">
+                                                        <input type="checkbox" name="Antartique" id="antartique">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                            <div class="bouton d-flex flex-column align-items-center">
+                                                <button class="button-search" type="submit">RECHERCHER</button>
+                                            </div><!--fin bouton Rechercher-->
+                                        </div><!--texte encadré-->
+                                    </div><!--fin encadré-->
+                                </div><!--fin déroulement-->
+                            </form><!--fin formulaire-->
+                                <!--Autres critères--> 
+                                <div class="autrescriteres">
+                                    <button id="btn-criteres">Autres critères</button>
+                                </div>
+                                <!--Map-->
+                                <div class="map">
+                                    <button id="btn-map">Voir la carte</button>
+                                </div>
+                        </div><!--d-flex-->
+                    </div><!--fin champ container-->
+
+                </div><!--fin Searchbar globale-->
+            </div><!--fin container-->
+        </header>

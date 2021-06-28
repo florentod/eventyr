@@ -3,10 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\PhotosRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+//!Gérable par Vich Uploader et File interface
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=PhotosRepository::class)
+ * @Vich\Uploadable
  */
 class Photos
 {
@@ -21,6 +26,13 @@ class Photos
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
+
+    //! Vich_uploder : voir le Doc
+    /**
+     * @Vich\UploadableField(mapping="offer_images", fileNameProperty="photo")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\ManyToOne(targetEntity=Offers::class, inversedBy="photo")
@@ -54,6 +66,20 @@ class Photos
         $this->offers = $offers;
 
         return $this;
+    }
+
+    public function setImageFile(File $file = null)
+    {
+        $this->imageFile = $file;
+
+        if ($file) {
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function __toString()

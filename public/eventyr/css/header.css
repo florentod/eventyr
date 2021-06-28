@@ -1,0 +1,611 @@
+/*------------------------------------*/
+/* HEADER*/
+/*------------------------------------*/
+
+header {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                  url("../assets/images/header/Canoe.jpg");
+    width: 100%;
+    height: 854px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin-bottom: 100px;
+}
+
+
+
+
+nav{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    left: 0px;
+    right: 0px;
+    height: 72px;
+    top: 0rem;
+}
+
+
+header nav .container ul li a {
+    color: white;
+}
+
+
+header nav ul{
+    display: flex;
+    list-style-type: none;
+}
+
+
+header nav li{
+
+    margin: 19px 0px;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 12px;
+}
+
+.navbar-expand-md .navbar-nav .nav-link{
+  padding-right: 24px;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: #F26F49;
+}
+
+/* svg*/
+#svgeventyr{
+    margin-left: 15%;
+    margin-top: -70px;
+    width: 70%;
+}
+
+
+/* Auttres critères */
+.autrescriteres{
+  position: relative;
+  width: 218px;
+  height: 72px;
+  background-color: white;
+  margin-top: 28px;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#btn-criteres{
+  appearance: none;
+  -webkit-appearance : none;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: none;
+  font-family: Roboto Mono;
+  text-align: left !important;
+  padding-left: 24px !important;
+}
+
+/* Map */
+.map{
+  position: relative;
+  width: 220px;
+  height: 72px;
+  background-color: white;
+  margin-top: 28px;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#btn-map{
+  appearance: none;
+  -webkit-appearance : none;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: none;
+  font-family: Roboto Mono;
+  text-align: left !important;
+  padding-left: 24px !important;
+}
+
+/* formulaire */
+.champ{
+  margin-top:11%  
+}
+
+.champ .d-flex #destination{
+    margin-top:28px;
+  }
+
+
+#destination{
+  position: relative;
+  width: 648px;
+  height: 72px;
+}
+
+
+/* Sélecteur */
+
+header select {
+  padding-left: 24px;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+#desti{
+  appearance: none;
+  -webkit-appearance : none;
+  width: 648px;
+  height: 72px;
+  background-color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.encardre{
+  position: absolute;
+  width: 872px;
+  height: 752px;
+  left: 0px;
+  top: 72px;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 1px 5px 5px 5px rgba(0, 0, 0, .2);
+}
+
+#textencadre{
+  margin-top: 40px;
+}
+
+.hidden{
+  display: none;
+}
+
+header hr{
+  margin: 30px 42px 0;
+}
+
+header label{
+  padding: 20px 52px 20px;
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+header #bouton{
+  margin-top:40px;
+}
+
+.button-search{
+  background-color: #F46F29;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin: 40px auto 10px;
+  font-family: "Roboto Mono", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  }
+
+  
+.button-search:hover {
+background-color:#171717;
+}
+
+
+/* Sélection mois*/
+/* JANVIER*/
+#jan[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/JAN.jpg);
+  background-position: center;
+}
+
+#jan[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/JAN-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* FEVRIER*/
+#feb[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/FEVRIER.jpg);
+  background-position: center;
+}
+
+#feb[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/FEVRIER-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* MARS*/
+#mar[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/MARS.jpg);
+  background-position: center;
+}
+
+#mar[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/MARS-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* AVRIL*/
+#apr[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/AVRIL.jpg);
+  background-position: center;
+}
+
+#apr[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/AVRIL-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* MAI*/
+#may[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/MAI.jpg);
+  background-position: center;
+}
+
+#may[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/MAI-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* JUIN*/
+#jun[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/JUIN.jpg);
+  background-position: center;
+}
+
+#jun[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/JUIN-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* JUILLET*/
+#jul[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/JUILLET.jpg);
+  background-position: center;
+}
+
+#jul[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/JUILLET-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* AOUT*/
+#aug[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/AOUT.jpg);
+  background-position: center;
+}
+
+#aug[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/AOUT-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* SEPTEMBRE*/
+#sep[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/SEPTEMBRE.jpg);
+  background-position: center;
+}
+
+#sep[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/SEPTEMBRE-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* OCTOBRE*/
+#oct[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/OCTOBRE.jpg);
+  background-position: center;
+}
+
+#oct[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/OCTOBRE-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* NOVEMBRE*/
+#nov[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/NOVEMBRE.jpg);
+  background-position: center;
+}
+
+#nov[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/NOVEMBRE-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+/* DECEMBRE*/
+#dec[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 108px;
+  height: 42px;
+  background-image: url(../assets/images/form/DECEMBRE.jpg);
+  background-position: center;
+}
+
+#dec[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/DECEMBRE-clic.jpg) ;
+  width: 108px;
+  height: 42px;
+  background-position: center;
+}
+
+
+/* Sélection de l'EXPERIENCE*/
+/* Extreme*/
+#Xextreme[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 216px;
+  height: 104px;
+  background-image: url(../assets/images/form/EXTREME.jpg);
+  background-position: center;
+}
+
+#Xextreme[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/EXTREME-clic.jpg) ;
+  width: 216px;
+  height: 104px;
+  background-position: center;
+}
+
+/* Découverte*/
+#Xdecouverte[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 216px;
+  height: 104px;
+  background-image: url(../assets/images/form/DECOUVERTE.jpg);
+  background-position: center;
+}
+
+#Xdecouverte[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/DECOUVERTE-clic.jpg) ;
+  width: 216px;
+  height: 104px;
+  background-position: center;
+}
+
+/* Inattendu*/
+#Xinattendu[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 216px;
+  height: 104px;
+  background-image: url(../assets/images/form/INATTENDU.jpg);
+  background-position: center;
+}
+
+#Xinattendu[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/INATTENDU-clic.jpg) ;
+  width: 216px;
+  height: 104px;
+  background-position: center;
+}
+
+
+/* Affichage du CONTINENT*/
+/* Europe*/
+#europe[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 72px;
+  height: 76px;
+  background-image: url(../assets/images/form/EUROPE.jpg);
+  background-position: center;
+}
+
+#europe[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/EUROPE-clic.jpg);
+  width: 72px;
+  height: 76px;
+  background-position: center;
+}
+
+/* Amérique */
+#amerique[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 84px;
+  height: 86px;
+  background-image: url(../assets/images/form/AMERICA.jpg);
+  background-position: center;
+}
+
+#amerique[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/AMERICA-clic.jpg) ;
+  width: 84px;
+  height: 86px;
+  background-position: center;
+}
+
+/* Asie */
+#asie[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 66px;
+  height: 70px;
+  background-image: url(../assets/images/form/ASIA.jpg);
+  background-position: center;
+}
+
+#asie[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/ASIA-clic.jpg) ;
+  width: 66px;
+  height: 70px;
+  background-position: center;
+}
+
+/* Asie */
+#oceanie[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 86px;
+  height: 72px;
+  background-image: url(../assets/images/form/OCEANIA.jpg);
+  background-position: center;
+}
+
+#oceanie[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/OCEANIA-clic.jpg) ;
+  width: 86px;
+  height: 72px;
+  background-position: center;
+}
+
+/* Afrique */
+#afrique[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 80px;
+  height: 68px;
+  background-image: url(../assets/images/form/AFRICA.jpg);
+  background-position: center;
+}
+
+#afrique[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/AFRICA-clic.jpg) ;
+  width: 80px;
+  height: 68px;
+  background-position: center;
+}
+
+/* Antartique */
+#antartique[type="checkbox"]{
+  appearance : none;
+  -webkit-appearance : none;
+  width: 104px;
+  height: 64px;
+  background-image: url(../assets/images/form/ANTARTIC.jpg);
+  background-position: center;
+}
+
+#antartique[type="checkbox"]:checked{
+  appearance: none;
+  -webkit-appearance : none;
+  background-image: url(../assets/images/form/ANTARTIC-clic.jpg) ;
+  width: 104px;
+  height: 64px;
+  background-position: center;
+}
+
+/* Espacement img pays */
+.pays input{
+  margin: 0 10px;
+}
+
+/*------------------------------------*/
+/* FIN HEADER */  
+/*------------------------------------*/

@@ -1,42 +1,142 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
 
-{% block title %}Log in!{% endblock %}
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+  <link href="eventyr/assets/images/header/favicon.png" rel="icon" />
+  {% block title %}Eventyr - Connexion{% endblock %}
+  <meta name="description" content="Login and Register">
 
-{% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+  <!-- Web Fonts
+========================= -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet
+========================= -->
+  <link rel="stylesheet" type="text/css" href="eventyr/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="eventyr/vendor/font-awesome/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="eventyr/css/stylesheet.css" />
+  <link rel="stylesheet" type="text/css" href="eventyr/css/color-orange.css" />
+  <link rel="stylesheet" type="text/css" href="eventyr/css/index.css">
+  <link rel="stylesheet" type="text/css" href="eventyr/css/nav.css">
+</head>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+<body>
+
+  {% block body %}
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="lds-ellipsis"></div>
+  </div>
+  <!-- Preloader End -->
+
+  <div id="main-wrapper" class="oxyy-login-register">
+    <div class="hero-wrap d-flex align-items-center h-100">
+      <div class="hero-mask opacity-4 bg-secondary"></div>
+
+      <!-- Background video-->
+      <div class="hero-bg hero-bg-scroll">
+        <video src="eventyr/video/header_eventyr.mp4" onloadedmetadata="this.muted = true" playsinline="" autoplay="" muted="" loop="" width="100%" height="auto"></video>
+      </div>
+
+      <!-- Header nav-->
+      <div class="header-nav position-absolute">
+        <img src="eventyr/assets/images/header/eventyr_with_Odin.svg" class="rounded mx-auto d-block" height="36rem" style="margin-top: 1.5rem" alt="logo_text_eventyr">
+      </div>
+
+      <div class="hero-content mx-auto w-100 h-100">
+        <div class="container">
+          <div class="row no-gutters min-vh-100">
+            <!-- Welcome Text
+		  ========================= -->
+            <div class="col-md-8 d-flex flex-column">
+              <!--<div class="row no-gutters my-auto">
+              <div class="col-10 col-lg-9 mx-auto text-center">
+                <div class="logo mt-5 mb-3"> <a href="index.html" title="Oxyy"><img src="eventyr/images/logo-lg-light.png" alt="Oxyy"></a> </div>
+                <h1 class="text-5 font-weight-400 text-white mb-5">We are glad to see you again!</h1>
+                <p><img src="eventyr/images/qr-code.jpg" class="shadow-lg" alt="qr code"></p>
+                <p class="text-white mb-0">Log In with QR Code</p>
+                <p class="text-light text-2 mx-lg-5">Scan this with your camera or our mobile app to login instantly.</p>
+              </div>
+            </div>-->
+            </div>
+            <!-- Welcome Text End -->
+
+            <!-- Login Form
+		  ========================= -->
+            <div class="col-md-4 d-flex align-items-center py-5">
+              <div class="container my-auto py-4 shadow-lg bg-white">
+                <div class="row">
+                  <div class="col-11 col-lg-11 mx-auto">
+                    <h3 class="text-9 font-weight-600 text-center mt-2 mb-3">Se connecter</h3>
+                    <p class="text-center mb-4">Devenir membre ? <a class="btn-link" href="register.html"><u>Créer un compte</u></a></p>
+                    <form id="loginForm" method="post">
+
+                      {% if error %}
+                      <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                      {% endif %} {% if app.user %}
+                      <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                      </div>
+                      {% endif %}
+
+                      <div class="form-group">
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Saisir votre Email">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="password" id="inputPassword" class="form-control rounded-0" autocomplete="current-password" required placeholder="Saisir votre mot de passe">
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <div class="form-check custom-control custom-checkbox">
+                            <input id="remember-me" name="remember" class="custom-control-input" type="checkbox">
+                            <label class="custom-control-label rounded-0" for="remember-me">Se souvenir de moi</label>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="btn btn-dark btn-block rounded-0 my-4" type="submit">Se connecter</button>
+                    </form>
+                    <div class="d-flex align-items-center my-3">
+                      <hr class="flex-grow-1">
+                      <span class="mx-2 text-2 text-muted">Se connecter avec</span>
+                      <hr class="flex-grow-1">
+                    </div>
+                    <div class="form-row mb-3">
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-facebook btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-facebook-f"></i></span>Facebook</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-google btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-google"></i></span>Google</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-apple btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-apple"></i></span>Apple</button>
+                      </div>
+                    </div>
+                    <p class="text-center">Vous avez oublié votre <a class="btn-link" href="forgot-Password.html"><u>mot de passe</u></a> ?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Login Form End -->
+            <a href="index.html">index</a>
+          </div>
         </div>
-    {% endif %}
+      </div>
+    </div>
+  </div>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+  <!-- Script -->
+  <script src="eventyr/vendor/jquery/jquery.min.js"></script>
+  <script src="eventyr/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="eventyr/js/theme.js"></script>
+  
+  {% endblock %}
+</body>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
-{% endblock %}
+</html>
