@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.Username }}</td>
+            </tr>
+            <tr>
+                <th>User_civility</th>
+                <td>{{ user.userCivility }}</td>
+            </tr>
+            <tr>
+                <th>User_first_name</th>
+                <td>{{ user.userFirstName }}</td>
+            </tr>
+            <tr>
+                <th>User_last_name</th>
+                <td>{{ user.userLastName }}</td>
+            </tr>
+            <tr>
+                <th>User_birthday</th>
+                <td>{{ user.userBirthday ? user.userBirthday|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>User_nationality</th>
+                <td>{{ user.userNationality }}</td>
+            </tr>
+            <tr>
+                <th>User_address</th>
+                <td>{{ user.userAddress }}</td>
+            </tr>
+            <tr>
+                <th>User_city</th>
+                <td>{{ user.userCity }}</td>
+            </tr>
+            <tr>
+                <th>User_zipcode</th>
+                <td>{{ user.userZipcode }}</td>
+            </tr>
+            <tr>
+                <th>User_phone</th>
+                <td>{{ user.userPhone }}</td>
+            </tr>
+            <tr>
+                <th>User_mobile</th>
+                <td>{{ user.userMobile }}</td>
+            </tr>
+            <tr>
+                <th>User_passport_number</th>
+                <td>{{ user.userPassportNumber }}</td>
+            </tr>
+            <tr>
+                <th>User_passport_country</th>
+                <td>{{ user.userPassportCountry }}</td>
+            </tr>
+            <tr>
+                <th>User_passport_date</th>
+                <td>{{ user.userPassportDate ? user.userPassportDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>User_photo</th>
+                <td>{{ user.userPhoto }}</td>
+            </tr>
+            <tr>
+                <th>User_select_comment</th>
+                <td>{{ user.userSelectComment }}</td>
+            </tr>
+            <tr>
+                <th>IsVerified</th>
+                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('user_log_index') }}">back to list</a> #}
+
+    <a href="{{ path('user_log_edit', {'id': user.id}) }}">edit</a>
+
+    {{ include('user_log/_delete_form.html.twig') }}
+{% endblock %}

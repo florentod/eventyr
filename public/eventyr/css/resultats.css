@@ -1,0 +1,212 @@
+*{
+    box-sizing: border-box;
+}
+/* RESULTAT RECHERCHE*/
+
+.cardresultat {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr) 3fr;
+    grid-template-rows: 315px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+.div20 { 
+        grid-area: 1 / 1 / 2 / 4; 
+    }
+.div21 { 
+        grid-area: 1 / 3 / 2 / 4; 
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+        padding: 10%;
+    }
+.cardresultat p{
+font-size: 12px;
+font-family: 'Roboto Mono';
+color: white;
+    }
+
+.cardresultat h3{
+        font-size: 16px;
+        font-family: 'Roboto Mono';
+        color: white;
+
+            }
+
+.div21 a{
+color: white; 
+font-size: 16px;}
+
+
+.recherche {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 315px;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    }
+
+.star{
+     width: 15%;
+     margin-left: 180PX;
+ }
+ .titrerecherche h2{
+     font-size: 30px !important;
+     font-family: 'Roboto Mono';
+     margin-top: 100px !important;
+     margin-bottom: 20px !important;
+ }
+
+
+    /* TEMOIGNAGES*/
+
+#temoignages2{
+    background-image: url(../assets/images/desert.jpg);
+    margin-top: 100px;
+    height: 384px;
+    background-size: cover;
+    background-position: center;
+}
+
+#temoignages2 p{
+ font-family: 'Roboto Mono';
+    font-size: 14px;
+    color:white;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.bandeau3{
+    background-color:rgba(0, 0, 0, 0.4);
+    height: 384px;
+}
+
+.bandeau3 h3{
+    font-family: 'Roboto Mono';
+    font-size: 100px;
+    color:white;
+    margin-top: 80px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+#temoignages2{
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#temoignages2 h2{
+    size: 40px;
+    font-family: 'Roboto Mono';
+    text-align: center;
+}
+.container-fluid{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    }
+
+    /* RESEAUX SOCIAUX*/
+
+.carre {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 274px 274px 274px; 
+    gap: 24px 24px; 
+    grid-template-areas: 
+      "img1 img2 img3"
+      "img1 text1 img4"
+      "img5 img6 img6"; 
+      margin-top: 100px;
+ }
+
+.img1 { 
+      grid-area: img1;    
+}
+
+.img2 { 
+      grid-area: img2;
+ }
+
+.img3 { 
+      grid-area: img3;
+ }
+
+.img4 { 
+      grid-area: img4;
+}
+  
+.text1 { 
+    grid-area: text1;
+    background-color: #f46f29; 
+}
+
+.text1 P{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Roboto Mono';
+}
+
+.text1 .reseaux10a img{
+    width: 100px;
+}
+
+.img5 { 
+    grid-area: img5;
+}
+    
+.img6 { 
+    grid-area: img6;
+}
+
+.reseaux10a ul li{
+    list-style: none;
+}
+
+  /* LES PLUS EVENTYR*/
+  
+.bandeau{
+    background-color: black;
+    height: 264px;
+    opacity: 0.8;
+}
+
+#plus{
+    background-image: url(../assets/images/Rectangle\ 1202\ \(1\).jpg);
+    margin-top: 100px;
+    background-size: cover;
+    background-position: center;
+    height: 482px;
+}
+
+#plus h2{
+    font-size: 30px;
+    font-family:'Roboto Mono';
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#plus p{
+    font-size: 16px;
+    font-family: 'Roboto Mono';
+    text-align: center;
+    color: white;
+    margin:10px auto;
+}
+
+
+ .gallery__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    
+
