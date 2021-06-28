@@ -1,0 +1,97 @@
+{% extends 'base.login.html.twig' %}
+
+{% block title %}Eventyr - Registration{% endblock %}
+
+  {% block body %}
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="lds-ellipsis">
+  </div>
+</div>
+<!-- Preloader End -->
+
+<div id="main-wrapper" class="oxyy-login-register">
+  <div class="hero-wrap d-flex align-items-center h-100">
+    <div class="hero-mask opacity-4 bg-secondary"></div>
+
+         <!-- Background video-->
+         <div class="hero-bg hero-bg-scroll">
+          <video src="eventyr/video/header_eventyr.mp4" onloadedmetadata="this.muted = true" playsinline="" autoplay="" muted="" loop="" width="100%" height="auto"></video>
+        </div>
+    
+            <!-- Header-->
+        <div class="header position-absolute">
+          <div class="align-baseline">
+            <img src="eventyr/images/eventyr_with_Odin.svg" class="rounded mx-auto d-block" height="36rem" style="margin-top: 1.5rem" alt="logo_text_eventyr">
+          </div>
+        </div>
+            <div class="hero-content mx-auto w-100 h-100">
+      <div class="container">
+        <div class="row no-gutters min-vh-100"> 
+          <!-- Welcome Text
+		  ========================= -->
+          <div class="col-md-8 d-flex flex-column">
+           <!-- <div class="row no-gutters my-auto">
+              <div class="col-10 col-lg-9 mx-auto text-center">
+                <div class="logo mt-5 mb-3"> <a href="templates/security/login.html.twig" title="Oxyy"><img src="eventyr/images/logo-lg-light.png" alt="Oxyy"></a> </div>
+                <h1 class="text-5 font-weight-400 text-white mb-5">Looks like you're new here!</h1>
+                <h2 class="text-white line-height-3 mb-5">Join our group in few minutes! Sign up with your details to get started</h2>
+                <a href="#" class="text-light mx-lg-5"><u>Downlod our mobile app.</u></a> </div>
+            </div>-->
+          </div>
+          <!-- Welcome Text End --> 
+          
+          <!-- Register Form
+		  ========================= -->
+          <div class="col-md-4 d-flex align-items-center py-5">
+            <div class="container my-auto py-4 shadow-lg bg-white">
+              <div class="row">
+                <div class="col-11 col-lg-11 mx-auto">
+                  <h3 class="text-9 font-weight-600 text-center mt-2 mb-3">Créer un compte</h3>
+                  <p class="text-center mb-4">Déjà membre ? <a class="btn-link" href="{{ path('app_login') }}"><u>Se connecter</u></a></p>
+                  <form id="registerForm" method="post">
+                    <div class="form-group">
+                      <input type="email" class="form-control rounded-0" id="emailAddress" required placeholder="Saisir votre Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control rounded-0" id="loginPassword" required placeholder="Saisir votre mot de passe">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control rounded-0" id="loginPassword" required placeholder="Re-saisir votre mot de passe">
+                    </div>
+                    <button class="btn btn-dark btn-block rounded-0 my-4" type="submit">Créer compte</button>
+                    <p class="text-center text-muted text-2 mb-0">En créant un compte, vous acceptez le Politique de confidentialité du site ainsi que ses <a class="btn-link" href="#">Conditions générales</a> de <a class="btn-link" href="#">vente</a></p>
+                  </form>
+                  <div class="d-flex align-items-center my-3">
+                    <hr class="flex-grow-1">
+                    <span class="mx-2 text-2 text-muted">Se connecter avec</span>
+                    <hr class="flex-grow-1">
+                  </div>
+                  <div class="form-row mb-3">
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-facebook btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-facebook-f"></i></span>Facebook</button>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-google btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-google"></i></span>Google</button>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-apple btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-apple"></i></span>Apple</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Register Form End --> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script --> 
+<script src="eventyr/vendor/jquery/jquery.min.js"></script> 
+<script src="eventyr/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script src="eventyr/js/theme.js"></script>
+  {% endblock %}

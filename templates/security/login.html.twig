@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
+{% extends 'base.login.html.twig' %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-  <link href="eventyr/assets/images/header/favicon.png" rel="icon" />
-  {% block title %}Eventyr - Connexion{% endblock %}
-  <meta name="description" content="Login and Register">
-
-  <!-- Web Fonts
-========================= -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Stylesheet
-========================= -->
-  <link rel="stylesheet" type="text/css" href="eventyr/vendor/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="eventyr/vendor/font-awesome/css/all.min.css" />
-  <link rel="stylesheet" type="text/css" href="eventyr/css/stylesheet.css" />
-  <link rel="stylesheet" type="text/css" href="eventyr/css/color-orange.css" />
-  <link rel="stylesheet" type="text/css" href="eventyr/css/index.css">
-  <link rel="stylesheet" type="text/css" href="eventyr/css/nav.css">
-</head>
-
-<body>
+{% block title %}Eventyr - Login{% endblock %}
 
   {% block body %}
 
@@ -55,7 +32,7 @@
             <div class="col-md-8 d-flex flex-column">
               <!--<div class="row no-gutters my-auto">
               <div class="col-10 col-lg-9 mx-auto text-center">
-                <div class="logo mt-5 mb-3"> <a href="index.html" title="Oxyy"><img src="eventyr/images/logo-lg-light.png" alt="Oxyy"></a> </div>
+                <div class="logo mt-5 mb-3"> <a href="index.html.twig" title="Oxyy"><img src="eventyr/images/logo-lg-light.png" alt="Oxyy"></a> </div>
                 <h1 class="text-5 font-weight-400 text-white mb-5">We are glad to see you again!</h1>
                 <p><img src="eventyr/images/qr-code.jpg" class="shadow-lg" alt="qr code"></p>
                 <p class="text-white mb-0">Log In with QR Code</p>
@@ -72,7 +49,7 @@
                 <div class="row">
                   <div class="col-11 col-lg-11 mx-auto">
                     <h3 class="text-9 font-weight-600 text-center mt-2 mb-3">Se connecter</h3>
-                    <p class="text-center mb-4">Devenir membre ? <a class="btn-link" href="register.html"><u>Créer un compte</u></a></p>
+                    <p class="text-center mb-4">Devenir membre ? <a class="btn-link" href="{{ path('app_register') }}"><u>Créer un compte</u></a></p>
                     <form id="loginForm" method="post">
 
                       {% if error %}
@@ -118,13 +95,13 @@
                         <button type="button" class="btn btn-outline-apple btn-sm btn-block border-2 rounded-0 shadow-none"><span class="mr-2"><i class="fab fa-apple"></i></span>Apple</button>
                       </div>
                     </div>
-                    <p class="text-center">Vous avez oublié votre <a class="btn-link" href="forgot-Password.html"><u>mot de passe</u></a> ?</p>
+                    <p class="text-center">Vous avez oublié votre <a class="btn-link" href="forgot-Password.html.twig"><u>mot de passe</u></a> ?</p>
                   </div>
                 </div>
               </div>
             </div>
             <!-- Login Form End -->
-            <a href="index.html">index</a>
+            <a href="index.html.twig">index</a>
           </div>
         </div>
       </div>
@@ -135,8 +112,4 @@
   <script src="eventyr/vendor/jquery/jquery.min.js"></script>
   <script src="eventyr/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="eventyr/js/theme.js"></script>
-  
   {% endblock %}
-</body>
-
-</html>
