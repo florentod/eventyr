@@ -6,6 +6,7 @@ use App\Repository\OffersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+//Gérable par Vich Uploader et File interface
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
@@ -53,15 +54,21 @@ class Offers
     private $offer_map_photo;
 
     /**
+     * @Vich\UploadableField(mapping="offer_images", fileNameProperty="offer_map_photo")
+     * @var File
+     */
+    private $imageFileMapPhoto;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $offer_start_photo;
 
-     /**
+    /**
      * @Vich\UploadableField(mapping="offer_images", fileNameProperty="offer_start_photo")
      * @var File
      */
-    private $imageFile;
+    private $imageFileStartPhoto;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="offer")
@@ -185,22 +192,27 @@ class Offers
         return $this;
     }
 
-    public function setImageFile(File $file = null)
+    //! Gettors et Settors de géstion des images via Vich_Uploader
+    public function setImageFileMapPhoto(File $file = null)
     {
-        $this->imageFile = $file;
+        $this->imageFileMapPhoto = $file;
 
-        //! VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine
-        // otherwise the event listeners won't be called and the is lost
-        if ($file) {
-            // if 'updateAt' is not defined in your entity, use another property
-            $this->createdAt = new \DateTime('now');
-        }
     }
 
-    public function getImageFile()
+    public function getImageFileMapPhoto()
     {
-        return $this->imageFile;
+        return $this->imageFileMapPhoto;
+    }
+
+    public function setImageFileStartPhoto(File $file = null)
+    {
+        $this->imageFileStartPhoto = $file;
+
+    }
+
+    public function getImageFileStartPhoto()
+    {
+        return $this->imageFileStartPhoto;
     }
 
     /**
