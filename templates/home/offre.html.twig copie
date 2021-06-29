@@ -6,22 +6,22 @@
 
 <section class="container">
         <div class="zelande">
-        <h2>{{ offer.recap }}, <br>{{ offer.country.countryName }}  </h2>
+        <h2>{{ offer.recap }}, <br> {{ offer.contry }} </h2>
         <p>{{ offer.brief }}</p>
         <div class="pictos">
             <div class="jours">
                 <img src="/eventyr/assets/images/sablier.svg" alt="image sablier" class="pictolink">
-                <p> JOURS</p>
+                <p>{{ offer.time }} JOURS</p>
             </div>
     
             <div class="difficulte">
                 <img src="/eventyr/assets/images/difficile.svg" alt="image difficile" class="pictolink">
-                <p>{{ offer.offerDifficulty }}</p>
+                <p>{{ offer.offer_difficulty }}</p>
             </div>
     
             <div class="hebergement">
                 <img src="/eventyr/assets/images/hotel.svg" alt="image hotel" class="pictolink">
-                <p>{{ offer.offerHosting }}</p>
+                <p>{{ offer.offer_hosting }}</p>
             </div>
         </div>
         </div>
@@ -30,17 +30,17 @@
     <section class="container">
         <div class="article">
             <div class="sensations">
-                <h3>{{ offer.offerName }}</h3>
+                <h3>{{ offer.offer_name }}</h3>
                 <p>
-                {{ offer.offerDescription }}
+                {{ offer.offer_description }}
                 
     
                     <br><br>
-                    <b> {{ offer.typeHosting }} :</b>
-                    {{ offer.descriptionHosting }}
+                    <b> {{ offer.type_hosting }} :</b>
+                    {{ offer.description_hosting }}
                     <br><br>
-                    <b> {{ offer.typeFood }} : </b>
-                    {{ offer.descriptionFood }}
+                    <b> {{ offer.type_food }} : </b>
+                    {{ offer.description_food }}
                 </p>
             </div>
             <div class="carte">
@@ -53,7 +53,7 @@
         <div class="div31">
             <h3>“</h3>
             <p>★★★ <br>
-                Nous avons passé un merveilleux voyage en {{ offer.country }}.
+                Nous avons passé un merveilleux voyage en {{ offer.contry }}.
                 Les prestations étaient parfaitement organisées et les sensations fortes au rendez-vous.</p>
         </div>
         <div class="div32">
@@ -70,7 +70,7 @@
         <div class="div34">
             
 
-    {# {% for offer in listOffers %}
+    {% for offer in listOffers %}
             <div class="voyage">
                 <div class="journee">
                     <p><b>JOUR </b></p>
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-     {% endfor %} #}
+     {% endfor %}
             
         </div>
        
