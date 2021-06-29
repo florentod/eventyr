@@ -140,6 +140,7 @@ class AppFixtures extends Fixture
             $offerLevels = ['facile', 'moyen', 'dificile'];
             $offerHostings = ['hôtel', 'camping'];
             $offerFoods = ['pension complète'];
+            $images = ['/eventyr/assets/images/Rectangle 54 (3).jpg', '/eventyr/assets/images/Rectangle 53 (3).jpg','/eventyr/assets/images/Rectangle 1250 (1).jpg'];
 
             $offer->setOfferName($faker->words(3, true))
    
@@ -151,8 +152,8 @@ class AppFixtures extends Fixture
                   ->setDescriptionHosting($faker->text(200))
                   ->setTypeFood($faker->randomElement($offerFoods))
                   ->setDescriptionFood($faker->text(100))
-                  ->setOfferMapPhoto($faker->word())
-                  ->setOfferStartPhoto('placeholder-offer-default.jpeg')
+                  ->setOfferMapPhoto('/eventyr/assets/images/Group 270.jpg')
+                  ->setOfferStartPhoto($faker->randomElement($images))
                   ->setStartPoint($faker->city())
                   ->setEndPoint($faker->city())
                   ->setRecap($faker->text(100))

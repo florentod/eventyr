@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.details.html.twig' %}
 
 {% block title %}Type d'offre{% endblock %}
 
@@ -6,7 +6,7 @@
 
 <section class="container">
         <div class="zelande">
-        <h2>{{ offer.recap }}, <br>{{ offer.country.countryName }}  </h2>
+        <h2>{{ offer.recap }}, <br> {{ offer.country.countryName }}</h2>
         <p>{{ offer.brief }}</p>
         <div class="pictos">
             <div class="jours">
@@ -53,7 +53,7 @@
         <div class="div31">
             <h3>“</h3>
             <p>★★★ <br>
-                Nous avons passé un merveilleux voyage en {{ offer.country }}.
+                Nous avons passé un merveilleux voyage en {{ offer.country.countryName }}.
                 Les prestations étaient parfaitement organisées et les sensations fortes au rendez-vous.</p>
         </div>
         <div class="div32">
@@ -68,6 +68,11 @@
         </div>
     
         <div class="div34">
+
+        {% for datesoffers in offer.datesprices %}
+        <a href="{{ path("bookings_prevalidation",{"id":datesoffers.id} ) }}">{{datesoffers.price}} </a>
+
+    {% endfor %}
             
 
     {# {% for offer in listOffers %}

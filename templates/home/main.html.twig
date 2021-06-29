@@ -1,5 +1,6 @@
 <main>
 <div id="search" ></div>
+
                 <section id="theme" class="theme container">
                     <div class="row">
 
@@ -66,13 +67,13 @@
 
                     <img src="{{ lastOffers[0].offer_start_photo }}" alt="" class="gallery__img div1">
                     <div class="div1 overlay" style="background-color:rgba(0, 0, 0, 0.5);">
-                        <p>{{ lastOffers[0].offer_description }}</p>
+                        <p>{{ lastOffers[0].offer_name }}</p>
                         <a href="offers/{{ lastOffers[0].id }}"><img src="eventyr/assets/images/Group 247.svg" alt=""></a>
                     </div>
 
                     <img src="{{ lastOffers[1].offer_start_photo }}" alt="" class="gallery__img div2">
                     <div class="div2 overlay" style="background-color:rgba(0, 0, 0, 0.5);">
-                        <p>{{ lastOffers[1].offer_description }}</p>
+                        <p>{{ lastOffers[1].offer_name }}</p>
                         <a href="offers/{{ lastOffers[1].id }}"><img src="eventyr/assets/images/Group 247.svg" alt=""></a>
                     </div>
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+        <link href="eventyr/assets/images/header/favicon.png" rel="icon"/>
+        <meta
+        name="description" content="Presentation">
+
+        <title>{% block title %}Eventyr!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+        <!-- Web Fonts
+                ========================= -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Stylesheet
+                ========================= -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/stylesheet.css"/>
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/index.css"><!--css de la page-->
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/footer.css">
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/color-orange.css"/> 
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/article.css">
+        <link rel="stylesheet" type="text/css" href="/eventyr/css/resultats.css">
+    </head>
+
+    <body>
+        {% include 'base/nav.details.html.twig' %}
+        {% block body %}{% endblock %}
+        {% include 'base/footer.html.twig' %}
+    </body>
+</html>

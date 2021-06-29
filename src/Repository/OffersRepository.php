@@ -36,7 +36,8 @@ class OffersRepository extends ServiceEntityRepository
         $qb = $this
         ->createQueryBuilder('a')
         ->select('a')
-        ->orderBy('a.offer_name', 'asc');
+        ->orderBy('a.offer_name', 'desc')
+        ->setMaxResults(4);
         return $qb->getQuery()->getResult(Query::HYDRATE_ARRAY);
     }
     
