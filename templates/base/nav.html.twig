@@ -8,20 +8,20 @@
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">EXTRÊME</a>
+                                <a class="nav-link" href="{{ '/home/extreme' }}">EXTRÊME</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">DÉCOUVERTE</a>
+                                <a class="nav-link" href="{{ '/home/decouverte' }}">DÉCOUVERTE</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">INATTENDU</a>
+                                <a class="nav-link" href="{{ '/home/inattendu' }}">INATTENDU</a>
                             </li>
                         </ul>
                     </div><!--fin nav left-->
                      <!--logo center-->
                     <div class="mx-auto order-0 hidden"><!--logo center à cacher en js pour la homepage uniquement-->
                         <a class="navbar-brand" href="#">
-                            <img src="eventyr/assets/images/header/odin.svg" width="40" height="40" alt="">
+                            <img src="/eventyr/assets/images/header/odin.svg" width="40" height="40" alt="">
                         </a>
                     </div><!--logo center-->
                     <!--nav right-->
@@ -31,16 +31,19 @@
                                     <a class="nav-link" href="#">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Mon compte</a>
+                                    <a class="nav-link" href="{{ '/user/log/'~app.user.id~'/' }}">Mon compte</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Mon aventure</a>
+                                    <a class="nav-link" href="{{ '/home/mon_aventure' }}">Mon aventure</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Favoris</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                                 </li>
                             </ul>
                         </div><!--nav right-->

@@ -95,6 +95,46 @@ class Offers
      */
     private $datesprices;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $typeHosting;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $descriptionHosting;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $typeFood;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $descriptionFood;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $startPoint;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $endPoint;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $recap;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $brief;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -346,5 +386,101 @@ class Offers
 
     public function __toString(){
         return $this->offer_name;
+    }
+
+    public function getTypeHosting(): ?string
+    {
+        return $this->typeHosting;
+    }
+
+    public function setTypeHosting(string $typeHosting): self
+    {
+        $this->typeHosting = $typeHosting;
+
+        return $this;
+    }
+
+    public function getDescriptionHosting(): ?string
+    {
+        return $this->descriptionHosting;
+    }
+
+    public function setDescriptionHosting(string $descriptionHosting): self
+    {
+        $this->descriptionHosting = $descriptionHosting;
+
+        return $this;
+    }
+
+    public function getTypeFood(): ?string
+    {
+        return $this->typeFood;
+    }
+
+    public function setTypeFood(string $typeFood): self
+    {
+        $this->typeFood = $typeFood;
+
+        return $this;
+    }
+
+    public function getDescriptionFood(): ?string
+    {
+        return $this->descriptionFood;
+    }
+
+    public function setDescriptionFood(string $descriptionFood): self
+    {
+        $this->descriptionFood = $descriptionFood;
+
+        return $this;
+    }
+
+    public function getStartPoint(): ?string
+    {
+        return $this->startPoint;
+    }
+
+    public function setStartPoint(string $startPoint): self
+    {
+        $this->startPoint = $startPoint;
+
+        return $this;
+    }
+
+    public function getEndPoint(): ?string
+    {
+        return $this->endPoint;
+    }
+
+    public function setEndPoint(string $endPoint): self
+    {
+        $this->endPoint = $endPoint;
+
+        return $this;
+    }
+
+    public function getRecap(): ?string
+    {
+        return $this->recap;
+    }
+
+    public function setRecap(string $recap): self
+    {
+        $this->recap = $recap;
+
+        return $this;
+    }
+
+    public function getBrief(): ?string
+    {
+        return $this->brief;
+    }
+
+    public function setBrief(string $brief): self
+    {
+        $this->brief = $brief;
+
+        return $this;
     }
 }
