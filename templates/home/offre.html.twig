@@ -55,13 +55,191 @@
     </table>
 ============
     This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/florent/Documents/Symfony/projet_eventyr/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <a href="{{ '/home' }}">templates/home/index.html.twig</a></li>
-        <li>Your template at <a href="{{ '/home/decouverte' }}">templates/home/decouverte.html.twig</a></li>
-        <li>Your template at <a href="{{ '/home/inattendu' }}">templates/home/inattendu.html.twig</a></li>
-        <li>Your template at <a href="{{ '/home/extreme' }}">templates/home/extreme.html.twig</a></li>
+    <main>
+        <div class="titrerecherche container">
+            {# <h2>{{ listOffers.offerType }}</h2> #}
+        </div>
+        <section class="container recherche">
 
-    </ul>
-</div>
+        {% for offer in listOffers %}
+        <div class="cardresultat">
+            <div class="div20"> 
+                <img src="ASSETS/IMAGES/{{ offer.offerStartPhoto }}" alt="image resultat" class="gallery__img">
+            </div>
+            <div class="div21"> 
+                <h3>{{ offer.offerName }}<br> EN NOUVELLE-ZÉLANDE</h3>
+                <p>{{ offer.offerDescription }} [...]</p>
+                <a href="{{ path('offers_show', {'id': offer.id}) }}">VOIR PLUS</a>
+                <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+            </div>
+            </div>
+        {% endfor %}
+
+
+           {# <div class="cardresultat">
+            <div class="div20"> 
+                <img src="ASSETS/IMAGES/Rectangle 1170 (1).jpg" alt="image resultat" class="gallery__img">
+            </div>
+            <div class="div21"> 
+                <h3>SENSATIONS FORTES GARANTIES, <br> EN NOUVELLE-ZÉLANDE</h3>
+                <p>Située dans la région d’Otago, sur l’Île du Sud, la ville de Queenstown est très certainement [...]</p>
+                <a href="article.html">VOIR PLUS</a>
+                <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+            </div>
+            </div>
+    
+             <div class="cardresultat">
+                <div class="div20"> 
+                    <img src="ASSETS/IMAGES/5c6c65d22628986c4d6b51aa-2732-2049 1 (2).jpg" alt="image resultat" class="gallery__img">
+                </div>
+                <div class="div21"> 
+                    <h3>PLONGÉE À LA RENCONTRE DES GRANDS REQUINS BLANCS, <br> EN AUSTRALIE</h3>
+                    <p>Plongée à la rencontre des grands requins blancs en Australie.</p>
+                    <a href="article.html">VOIR PLUS</a>
+                    <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+                </div>
+                </div>
+                <div class="cardresultat">
+                    <div class="div20"> 
+                        <img src="ASSETS/IMAGES/Rectangle 1190.jpg" alt="image resultat" class="gallery__img">
+                    </div>
+                    <div class="div21"> 
+                        <h3>SURFER SUR UN VOLCAN EN ACTIVITÉ, <br> AU NICARAGUA</h3>
+                        <p>Il s’agit du seul endroit au monde où l’on peut descendre le flanc cendré d’un volcan [...]</p>
+                        <a href="article.html">VOIR PLUS</a>
+                        <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+                    </div>
+                    </div>
+                    <div class="cardresultat">
+                        <div class="div20"> 
+                            <img src="ASSETS/IMAGES/spacex 1 (1).jpg" alt="image resultat" class="gallery__img">
+                        </div>
+                        <div class="div21"> 
+                            <h3>VOL EN ORBITE</h3>
+                            <p>« Cette mission permet l’accès à l’espace aux gens ordinaires qui en rêvent »</p>
+                            <a href="article.html">VOIR PLUS</a>
+                            <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+                        </div>
+                        </div>
+                        <div class="cardresultat">
+                            <div class="div20"> 
+                                <img src="ASSETS/IMAGES/cache_2472569756 1 (1).jpg" alt="image resultat" class="gallery__img">
+                            </div>
+                            <div class="div21"> 
+                                <h3>SURVIE SUR UNE ÎLE DÉSERTE, <br> AUX PHILIPPINES</h3>
+                                <p>Votre stage de survie se fera dans un environnement authentique et préservé à la beauté [...]</p>
+                                <a href="article.html">VOIR PLUS</a>
+                                <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+                            </div>
+                            </div>
+                            <div class="cardresultat">
+                                <div class="div20"> 
+                                    <img src="ASSETS/IMAGES/Volcano-chili-saut-elastique 1 (1).jpg" alt="image resultat" class="gallery__img">
+                                </div>
+                                <div class="div21"> 
+                                    <h3>SENSATIONS FORTES GARANTIES, <br> AU CHILI</h3>
+                                    <p>Un saut à l’élastique à 2847 mètres de haut, depuis un hélicoptère et au-dessus d’un des volcans [...]</p>
+                                    <a href="article.html">VOIR PLUS</a>
+                                    <img src="ASSETS/IMAGES/favoris.svg" alt="image resultat" class="star">
+                                </div>
+                                </div> #}
+    
+    
+    </section>
+    
+        <section id="temoignages2" class="container-fluid">
+            <div class="bandeau3">
+                <div class="row">
+                    <div class="col-4">
+                        <h3>“</h3>
+                        <p>★★★ <br>
+                            Nous avons passé un merveilleux voyage en Nouvelle Zélande.
+                            Les prestations étaient parfaitement organisées et les sensations fortes au rendez-vous.</p>
+                    </div>
+                    <div class="col-4">
+                        <h3>“</h3>
+                        <p>★★★<br>
+                            J’ai vécu des expériences extrèmes, dans un cadre époustouflant,un grand merci.</p>
+                    </div>
+                    <div class="col-4">
+                        <h3>“</h3>
+                        <p>★★★<br>
+                            Dès les premiers instants on en prend plein les yeux. Je conseille fortement ce séjour pour ceux
+                            qui veulent se dépasser.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="container">
+            <div class="carre">
+                <div class="img1">
+                    <img src="ASSETS/IMAGES/fille balancoire.jpg" alt="image reseaux" class="gallery__img">
+                </div>
+                <div class="img2">
+                    <img src="ASSETS/IMAGES/train.jpg" alt="image reseaux" class="gallery__img">
+                </div>
+                <div class="img3">
+                    <img src="ASSETS/IMAGES/fille mer.jpeg" alt="image reseaux" class="gallery__img">
+                </div>
+                <div class="text1">
+                    <p>ILS L'ON FAIT</p>
+    
+                    <div class="reseaux10a row">
+                        <ul class="reseaux10 d-flex align-items-center justify-content-between">
+                            <li class="rs-item">
+                                <a href="#"><img src="ASSETS/IMAGES/facebook.svg" alt="instagram"></a>
+                            </li>
+                            <li class="rs-item">
+                                <a href="#"><img src="ASSETS/IMAGES/instagram.svg" alt="instagram"></a>
+                            </li>
+                            <li class="rs-item">
+                                <a href="#"><img src="ASSETS/IMAGES/twitter.svg" alt="twitter"></a>
+                            </li>
+                            <li class="rs-item">
+                                <a href="#"><img src="ASSETS/IMAGES/linkedin.svg" alt="linkedin"></a>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="img4">
+                    <img src="ASSETS/IMAGES/groupe amis.jpg" alt="image reseaux" class="gallery__img">
+                </div>
+                <div class="img5">
+                    <img src="ASSETS/IMAGES/Rectangle 1250 (1).jpg" alt="image reseaux" class="gallery__img">
+                </div>
+                <div class="img6">
+                    <img src="ASSETS/IMAGES/homme velo.jpg" alt="image reseaux" class="gallery__img">
+    
+                </div>
+            </div>
+        </section>
+    
+        <section id="plus" class="container-fluid text-center">
+            <div class="bandeau">
+                <h2 class="mb-5">LES PLUS EVENTYR</h2>
+                <div class="row">
+                <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
+                    <img src="assets/IMAGES/Group 237 (1).svg" alt="conciergerie">
+                    <p>CONCIERGERIE</p>
+                </div>
+                <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
+                    <img src="assets/IMAGES/Vector (17).svg" alt="salon">
+                    <p>ACCÈS AUX SALONS</p>
+                </div>
+                <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
+                    <img src="assets/IMAGES/Vector (1).svg" alt="visa">
+                    <p>VISA</p>
+                </div>
+                <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
+                    <img src="assets/IMAGES/Vector (2).svg" alt="voiture">
+                    <p>TRANSFERTS PRIVÉS</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+    </main>   
 {% endblock %}
