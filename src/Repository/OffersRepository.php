@@ -32,6 +32,14 @@ class OffersRepository extends ServiceEntityRepository
         // return $qb->getQuery()->getArrayResult(); // Hydratation array, équivalent à la ligne du dessus
     }
 
+    public function findLast4(){
+        $qb = $this
+        ->createQueryBuilder('a')
+        ->select('a')
+        ->orderBy('a.offer_name', 'asc');
+        return $qb->getQuery()->getResult(Query::HYDRATE_ARRAY);
+    }
+    
     // /**
     //  * @return Offers[] Returns an array of Offers objects
     //  */
