@@ -101,7 +101,7 @@ class Offers
     private $typeHosting;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $descriptionHosting;
 
@@ -126,7 +126,7 @@ class Offers
     private $endPoint;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $recap;
 
