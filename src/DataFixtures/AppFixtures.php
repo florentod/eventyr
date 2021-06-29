@@ -30,7 +30,6 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         // Création de l'Admin
-
         $admin = new User();
 
         $admin->setEmail('admin@bob.fr')
@@ -42,11 +41,11 @@ class AppFixtures extends Fixture
              ->setUserAddress($faker->address())
              ->setUserCity($faker->city())
              ->setUserZipcode($faker->countryCode())
-             ->setUserPhone($faker->countryCode())
-             ->setUserMobile($faker->countryCode())
+             ->setUserPhone($faker->phoneNumber())
+             ->setUserMobile($faker->phoneNumber())
              ->setUserPassportNumber($faker->bankAccountNumber())
              ->setUserPassportCountry($faker->country())
-             ->setUserPassportDate($faker->dateTimeBetween('-10 years', '-1 days'))
+             ->setUserPassportDate($faker->dateTimeBetween('now', '+10 years'))
              ->setCreatedAt($faker->dateTimeBetween('-1 year', 'now'))
              ->setRoles(['ROLE_ADMIN']);
 
@@ -70,11 +69,11 @@ class AppFixtures extends Fixture
              ->setUserAddress($faker->address())
              ->setUserCity($faker->city())
              ->setUserZipcode($faker->countryCode())
-             ->setUserPhone($faker->countryCode())
-             ->setUserMobile($faker->countryCode())
+             ->setUserPhone($faker->phoneNumber())
+             ->setUserMobile($faker->phoneNumber())
              ->setUserPassportNumber($faker->bankAccountNumber())
              ->setUserPassportCountry($faker->country())
-             ->setUserPassportDate($faker->dateTimeBetween('-10 years', '-1 days'))
+             ->setUserPassportDate($faker->dateTimeBetween('now', '+10 years'))
              ->setCreatedAt($faker->dateTimeBetween('-1 year', 'now'))
              ->setRoles(['ROLE_USER']);
 
@@ -84,19 +83,48 @@ class AppFixtures extends Fixture
         $manager->persist($user);
         }
 
-        // //Création de pays
-        // for ($i=0; $i < 10; $i++) {
-        //     $country = new Countries();
+        //Création de pays
+        $country = new Countries();
+        $country->setCountryName('Nouvelle-Zélande')
+                ->setContinentName('Océanie');
+        $manager->persist($country);
 
-        //     $country->setCountryName($faker->country());
-        //             //->setCountryContinent($faker->word(1, true));
 
-        //     //$manager->persist($country);
-        // }
+        for ($i=0; $i < 10; $i++) {
+            $country = new Countries();
 
-        //Création de 10 offers
+            $country->setCountryName($faker->country())
+                    ->setContinentName($faker->word(1, true));
+
+            $manager->persist($country);
+        }
+
+        //Création des offers
+
         for ($i=0; $i < 10; $i++) {
             $offer = new Offers();
+
+            if ($i == 0) {
+
+                $offer->setOfferName($faker->words(3, true))
+                  ->setOfferType($faker->words(1, true))
+                  ->setOfferDifficulty($faker->word())
+                  //->setOfferSlug($faker->slug(3))
+                  ->setOfferDescription($faker->text(350))
+                  ->setOfferHosting($faker->word())
+                  //->setHostingDescription($faker->text(250))
+                  //->setMealType($faker->word())
+                  //->setMealDescription($faker->text(100))
+                  ->setOfferMapPhoto($faker->word())
+                  ->setOfferStartPhoto('placeholder-offer-default.jpeg');
+                  //->setStartingPoint($faker->city())
+                  //->setArrivalPoint($faker->city())
+                  //->setTransportCompany($faker->words(3, true))
+                  //->setCountry($country);
+                  //($faker->randomElement($country));
+        
+            $manager->persist($offer);
+            }
 
             $offer->setOfferName($faker->words(3, true))
                   ->setOfferType($faker->words(1, true))

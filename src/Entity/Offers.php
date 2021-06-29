@@ -6,6 +6,7 @@ use App\Repository\OffersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+//Gérable par Vich Uploader et File interface
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
@@ -53,15 +54,21 @@ class Offers
     private $offer_map_photo;
 
     /**
+     * @Vich\UploadableField(mapping="offer_images", fileNameProperty="offer_map_photo")
+     * @var File
+     */
+    private $imageFileMapPhoto;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $offer_start_photo;
 
-     /**
+    /**
      * @Vich\UploadableField(mapping="offer_images", fileNameProperty="offer_start_photo")
      * @var File
      */
-    private $imageFile;
+    private $imageFileStartPhoto;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="offer")
@@ -87,6 +94,46 @@ class Offers
      * @ORM\OneToMany(targetEntity=DatesPrices::class, mappedBy="offer")
      */
     private $datesprices;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $typeHosting;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $descriptionHosting;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $typeFood;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $descriptionFood;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $startPoint;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $endPoint;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $recap;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $brief;
 
     public function __construct()
     {
@@ -185,22 +232,27 @@ class Offers
         return $this;
     }
 
-    public function setImageFile(File $file = null)
+    //! Gettors et Settors de géstion des images via Vich_Uploader
+    public function setImageFileMapPhoto(File $file = null)
     {
-        $this->imageFile = $file;
+        $this->imageFileMapPhoto = $file;
 
-        //! VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine
-        // otherwise the event listeners won't be called and the is lost
-        if ($file) {
-            // if 'updateAt' is not defined in your entity, use another property
-            $this->createdAt = new \DateTime('now');
-        }
     }
 
-    public function getImageFile()
+    public function getImageFileMapPhoto()
     {
-        return $this->imageFile;
+        return $this->imageFileMapPhoto;
+    }
+
+    public function setImageFileStartPhoto(File $file = null)
+    {
+        $this->imageFileStartPhoto = $file;
+
+    }
+
+    public function getImageFileStartPhoto()
+    {
+        return $this->imageFileStartPhoto;
     }
 
     /**
@@ -334,5 +386,101 @@ class Offers
 
     public function __toString(){
         return $this->offer_name;
+    }
+
+    public function getTypeHosting(): ?string
+    {
+        return $this->typeHosting;
+    }
+
+    public function setTypeHosting(string $typeHosting): self
+    {
+        $this->typeHosting = $typeHosting;
+
+        return $this;
+    }
+
+    public function getDescriptionHosting(): ?string
+    {
+        return $this->descriptionHosting;
+    }
+
+    public function setDescriptionHosting(string $descriptionHosting): self
+    {
+        $this->descriptionHosting = $descriptionHosting;
+
+        return $this;
+    }
+
+    public function getTypeFood(): ?string
+    {
+        return $this->typeFood;
+    }
+
+    public function setTypeFood(string $typeFood): self
+    {
+        $this->typeFood = $typeFood;
+
+        return $this;
+    }
+
+    public function getDescriptionFood(): ?string
+    {
+        return $this->descriptionFood;
+    }
+
+    public function setDescriptionFood(string $descriptionFood): self
+    {
+        $this->descriptionFood = $descriptionFood;
+
+        return $this;
+    }
+
+    public function getStartPoint(): ?string
+    {
+        return $this->startPoint;
+    }
+
+    public function setStartPoint(string $startPoint): self
+    {
+        $this->startPoint = $startPoint;
+
+        return $this;
+    }
+
+    public function getEndPoint(): ?string
+    {
+        return $this->endPoint;
+    }
+
+    public function setEndPoint(string $endPoint): self
+    {
+        $this->endPoint = $endPoint;
+
+        return $this;
+    }
+
+    public function getRecap(): ?string
+    {
+        return $this->recap;
+    }
+
+    public function setRecap(string $recap): self
+    {
+        $this->recap = $recap;
+
+        return $this;
+    }
+
+    public function getBrief(): ?string
+    {
+        return $this->brief;
+    }
+
+    public function setBrief(string $brief): self
+    {
+        $this->brief = $brief;
+
+        return $this;
     }
 }
