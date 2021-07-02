@@ -1,137 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Type d'offre{% endblock %}
+{% block title %}Offers{% endblock %}
 
 {% block body %}
+    <h1>Offers</h1>
 
-<section class="container">
-        <div class="zelande">
-        <h2>{{ offer.recap }}, <br>{{ offer.country.countryName }}  </h2>
-        <p>{{ offer.brief }}</p>
-        <div class="pictos">
-            <div class="jours">
-                <img src="/eventyr/assets/images/sablier.svg" alt="image sablier" class="pictolink">
-                <p> JOURS</p>
-            </div>
-    
-            <div class="difficulte">
-                <img src="/eventyr/assets/images/difficile.svg" alt="image difficile" class="pictolink">
-                <p>{{ offer.offerDifficulty }}</p>
-            </div>
-    
-            <div class="hebergement">
-                <img src="/eventyr/assets/images/hotel.svg" alt="image hotel" class="pictolink">
-                <p>{{ offer.offerHosting }}</p>
-            </div>
-        </div>
-        </div>
-    </section>
-    
-    <section class="container">
-        <div class="article">
-            <div class="sensations">
-                <h3>{{ offer.offerName }}</h3>
-                <p>
-                {{ offer.offerDescription }}
-                
-    
-                    <br><br>
-                    <b> {{ offer.typeHosting }} :</b>
-                    {{ offer.descriptionHosting }}
-                    <br><br>
-                    <b> {{ offer.typeFood }} : </b>
-                    {{ offer.descriptionFood }}
-                </p>
-            </div>
-            <div class="carte">
-                <img src="/eventyr/assets/images/Group 380.png" alt="image hotel">
-            </div>
-        </div>
-    </section>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offer.id }}</td>
+            </tr>
+            <tr>
+                <th>Offer_name</th>
+                <td>{{ offer.offerName }}</td>
+            </tr>
+            <tr>
+                <th>Offer_type</th>
+                <td>{{ offer.offerType }}</td>
+            </tr>
+            <tr>
+                <th>Offer_hosting</th>
+                <td>{{ offer.offerHosting }}</td>
+            </tr>
+            <tr>
+                <th>Offer_difficulty</th>
+                <td>{{ offer.offerDifficulty }}</td>
+            </tr>
+            <tr>
+                <th>Offer_description</th>
+                <td>{{ offer.offerDescription }}</td>
+            </tr>
+            <tr>
+                <th>Offer_map_photo</th>
+                <td>{{ offer.offerMapPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Offer_start_photo</th>
+                <td>{{ offer.offerStartPhoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% for datesoffers in offer.datesprices %}
+        <a href="{{ path("bookings_prevalidation",{"id":datesoffers.id} ) }}">{{datesoffers.price}} </a>
 
-    <section class="voyagiste container">
-        <div class="div31">
-            <h3>“</h3>
-            <p>★★★ <br>
-                Nous avons passé un merveilleux voyage en {{ offer.country }}.
-                Les prestations étaient parfaitement organisées et les sensations fortes au rendez-vous.</p>
-        </div>
-        <div class="div32">
-            <h3>“</h3>
-            <p>★★★ <br>
-                J’ai vécu des expériences extrèmes, dans un cadre époustouflant,un grand merci.</p>
-        </div>
-        <div class="div33">
-            <h3>“</h3>
-            <p>★★★ <br>
-                Dès les premiers instants on en prend plein les yeux. Je conseille fortement ce séjour pour ceux qui veulent se dépasser.</p>
-        </div>
-    
-        <div class="div34">
-            
+    {% endfor %}
 
-    {# {% for offer in listOffers %}
-            <div class="voyage">
-                <div class="journee">
-                    <p><b>JOUR </b></p>
-                </div>
-                <div class="bulle">
-                    <img src="/eventyr/assets/images/Group 32.svg" alt="bullet">
-    
-                </div>
-                <div class="libelle">
-                    <P> <b>  {{ offer.step_name }}</b>
-                        <br>
-                        {{ offer.step_description }} </P>
-                </div>
-            </div>
+    <a href="{{ path('offers_index') }}">back to list</a>
 
-     {% endfor %} #}
-            
-        </div>
-       
-    </section>
-    
-    
-    <section class="images container-fluid photos">
-    
-     
-            <div class="photo1"> 
-                <img src="/eventyr/assets/images/e7d632c6-1698-11e3-856f-00144feabdc0 3 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo2"> 
-                <img src="/eventyr/assets/images/Rectangle 1170 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo3"> 
-                <img src="/eventyr/assets/images/ce 3 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo4"> 
-                <img src="/eventyr/assets/images/4391118-eichardts-private-hotel-queenstown-new-zealand 1 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo5"> 
-                <img src="/eventyr/assets/images/Rectangle 1233 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo6"> 
-                <img src="/eventyr/assets/images/candidat-qui-saute-dans-le-vide@2x 1 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo7"> 
-                <img src="/eventyr/assets/images/enhanced-buzz-wide-17518-1393305707-9-690x517 3 (1).jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            
-            <div class="photo8"> 
-                <img src="/eventyr/assets/images/394682_WideInspirationalPhoto1170.jpg" alt="photo" class="gallery__img">
-    
-            </div>
-            <div class="photo9"> 
-                <img src="/eventyr/assets/images/108175_eichardt-s-private-hotel_.jpg" alt="photo" class="gallery__img">
-            </div>
-        </section>
+    {# <a href="{{ path('offers_edit', {'id': offer.id}) }}">edit</a> #}
 
-{% endblock %} 
+    {# {{ include('offers/_delete_form.html.twig') }} #}
+
+
+
+
+    
+{% endblock %}
